@@ -1,0 +1,53 @@
+.viewTopic-nav {
+	padding-top: 15px;
+}
+
+.label-filter {
+	padding-left: 0;
+	width: 81px;
+}
+
+dd {
+	color: black;
+}
+
+#filer {
+	display: inline-block;
+}
+
+.filter-college {
+	display: inline-block;
+}
+
+.filter-teacher {
+	display: inline-block;
+}
+
+.search {
+	display: inline-block;
+	position: absolute;
+	right: 100px;
+}
+
+.input-search {
+	display: inline-block;
+}
+
+.label-search {
+	display: inline-block;
+	position: absolute;
+	margin-left: 20px;
+}
+
+.table-topic {
+	margin: 0;
+}
+
+#pages {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+	width: 250px;
+}

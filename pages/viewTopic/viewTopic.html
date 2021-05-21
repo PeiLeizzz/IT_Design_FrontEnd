@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>所有课题</title>
+		<link rel="stylesheet" href="../../public/layui/css/layui.css" />
+		<link rel="stylesheet" href="viewTopic.css" />
+	</head>
+
+	<body>
+		<!-- 检索栏 -->
+		<div class="layui-nav layui-row viewTopic-nav">
+			<label class="layui-form-label label-filter"><strong>所有课题</strong></label>
+			
+			<form id="filter" class="layui-form" action="">
+				<div class="layui-form-item filter-college">
+					<label class="layui-form-label">院系</label>
+					<div class="layui-input-block">
+						<select name="college">
+							<option value=""></option>
+							<option value="0">理学院</option>
+							<option value="1">商学院</option>
+							<option value="2">药学院</option>
+							<option value="3">中药学院</option>
+							<option value="4">生科院</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item filter-teacher">
+					<label class="layui-form-label">教师</label>
+					<div class="layui-input-block">
+						<select name="teacher">
+							<option value=""></option>
+							<option value="0">胡建华</option>
+							<option value="1">侯凤贞</option>
+							<option value="2">关媛</option>
+							<option value="3">苏静</option>
+							<option value="4">王峰</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="search">
+					<div class="layui-input-block input-search">
+						<input type="text" name="topic-name" placeholder="课题名称" class="layui-input" />
+					</div>
+					<div class="layui-btn label-search" lay-submit>搜索</div>
+				</div>
+			</form>
+		</div>
+		
+		<table id="topic-table" class="layui-table table-topic" lay-size="lg"></table>
+		
+		<!-- 分页 -->
+		<div class="layui-table-page" id="pages">
+			
+		</div>
+	</body>
+
+	<script src="../../public/layui/layui.js"></script>
+	<script type="text/html" id="topicTitle">
+		<a href="/topic/{{d.topic_id}}" class="layui-table-link">{{d.topic_name}}</a>
+	</script>
+
+	<script type="text/html" id="college">
+		<div>{{d.teacher.college}}</a>
+	</script>
+	
+	<script type="text/html" id="teacher">
+		<a href="/teacher/{{d.teacher.id}}" class="layui-table-link">{{d.teacher.uname}}</a>
+	</script>
+	
+	<script type="text/html" id="select">
+		<div class="layui-btn" lay-event="select">选择</div>
+	</script>
+	<script src="../../public/js/pagination.js"></script>
+	<script src="viewTopic.js"></script>
+</html>

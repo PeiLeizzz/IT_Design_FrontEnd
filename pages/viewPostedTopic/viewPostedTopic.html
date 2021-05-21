@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>发布的课题</title>
+		<link rel="stylesheet" href="../../public/layui/css/layui.css" />
+		<link rel="stylesheet" href="viewPostedTopic.css" />
+	</head>
+
+	<body>
+		<!-- 检索栏 -->
+		<div class="layui-nav layui-row viewTopic-nav">
+			<label class="layui-form-label label-filter"><strong>发布的课题</strong></label>
+			
+			<form id="filter" class="layui-form" action="">
+				<div class="layui-form-item filter-college">
+					<label class="layui-form-label">筛选</label>
+					<div class="layui-input-block">
+						<select name="college">
+							<option value=""></option>
+							<option value="0">未满</option>
+							<option value="1">已满</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="search">
+					<div class="layui-input-block input-search">
+						<input type="text" name="topic-name" placeholder="课题名称" class="layui-input" />
+					</div>
+					<div class="layui-btn label-search" lay-submit>搜索</div>
+				</div>
+			</form>
+		</div>
+		
+		<table class="layui-table table-topic" lay-size="lg">
+			<colgroup>
+				<col>
+				<col width="160">
+				<col width="150">
+				<col width="150">
+				<col width="220">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>课题名</th>
+					<th>已确认学生数 / 最大可确认数</th>
+					<th>新报名学生数</th>
+					<th>新报名学生</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="#">基于 JavaEE 的毕业设计导师学生双选平台</a></td>
+					<td>5 / 15</td>
+					<td>9</td>
+					<td>
+						<button class="layui-btn enrolledStudents" onclick="viewEnrolledStudents()">
+							新报名学生
+						</button>
+					</td>
+					<td>
+						<div class="layui-btn">修改</div>
+						<div class="layui-btn">删除</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><a href="#">药物信息 AI 咨询平台</a></td>
+					<td>5 / 10</td>
+					<td>9</td>
+					<td>
+						<button class="layui-btn enrolledStudents" onclick="viewEnrolledStudents()">
+							新报名学生
+						</button>
+					</td>
+					<td>
+						<div class="layui-btn">修改</div>
+						<div class="layui-btn">删除</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- 分页 -->
+		<div class="layui-table-page" id="pages">
+			
+		</div>
+	</body>
+
+	<script src="../../public/layui/layui.js"></script>
+	<script src="viewPostedTopic.js"></script>
+	<script src="../../public/js/pagination.js"></script>
+</html>
