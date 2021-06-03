@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>发布的课题</title>
+		<link rel="stylesheet" href="../../../public/layui/css/layui.css" />
+		<link rel="stylesheet" href="viewPostedTopic.css" />
+	</head>
+
+	<body>
+		<!-- 检索栏 -->
+		<div class="layui-nav layui-row viewTopic-nav">
+			<label class="layui-form-label label-filter"><strong>发布的课题</strong></label>
+			
+			<div id="filter" class="layui-form">
+				<div class="layui-form-item filter-college">
+					<label class="layui-form-label">筛选</label>
+					<div class="layui-input-block layui-form">
+						<select id="status" name="status" lay-filter="status">
+							<option></option>
+							<option value="0">未满</option>
+							<option value="1">已满</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="search">
+					<div class="layui-input-block input-search">
+						<input id="topic_name" type="text" name="topic_name" placeholder="课题名称" class="layui-input" />
+					</div>
+					<input id="search_button" lay-filter="search_button" type="submit" class="layui-btn label-search" lay-submit />
+				</div>
+			</div>
+		</div>
+		
+		<table id="topic-table" class="layui-table table-topic" lay-size="lg"></table>
+	</body>
+
+	<script src="../../../public/layui/layui.js"></script>
+	
+	<script type="text/html" id="topic_title">
+		<a href="../../topic/topic.html?topic_id={{d.topic_id}}" class="layui-table-link" target=_blank>{{d.topic_name}}</a>
+	</script>
+	
+	<script type="text/html" id="stu_number">
+		<div>{{ d.now_person }} / {{ d.max_person }}</div>
+	</script>
+	
+	<script type="text/html" id="new_number">
+		{{# if (d.max_person <= d.now_person) { }}
+		<div>人数已满，报名关闭</div>
+		{{# } else { }}
+		<div>{{ d.new_person }}</div>
+		{{# } }}
+	</script>
+	
+	<script type="text/html" id="new_student">
+		{{# if (d.max_person <= d.now_person) { }}
+		<button type="button" class="layui-btn layui-btn-disabled">人数已满</button>
+		{{# } else if (d.new_person > 0) { }}
+		<button type="button" class="layui-btn layui-btn-primary layui-border-green" onclick="viewEnrolledStudents({{ d.topic_id }})">新报名学生</button>
+		{{# } else { }}
+		<button type="button" class="layui-btn layui-btn-disabled">无新报名学生</button>
+		{{# } }}
+	</script>
+	
+	<script type="text/html" id="operation">
+		<button type="button" class="layui-btn layui-btn-primary layui-border-green" onclick="changeTopic({{ d.topic_id }})">修改</button>
+		{{# if (d.now_person == 0) { }}
+		<button type="button" class="layui-btn layui-btn-primary layui-border-green" onclick="deleteTopic({{ d.topic_id }})">删除</button>
+		{{# } else { }}
+		<button type="button" class="layui-btn layui-btn-disabled">无法删除</button>
+		{{# } }}
+	</script>
+	
+	<script src="viewPostedTopic.js"></script>
+</html>

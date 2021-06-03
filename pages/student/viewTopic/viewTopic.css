@@ -4,15 +4,15 @@
 
 .label-filter {
 	padding-left: 0;
-	width: 82px;
-}
-
-#filer {
-	display: inline-block;
+	width: 140px;
 }
 
 dd {
 	color: black;
+}
+
+#filer {
+	display: inline-block;
 }
 
 .filter-college {
@@ -50,4 +50,8 @@ dd {
 	bottom: 0;
 	margin: 0 auto;
 	width: 250px;
+}
+
+.layui-table-cell {
+	height: auto;
 }

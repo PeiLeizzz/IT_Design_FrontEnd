@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>所有课题</title>
+		<link rel="stylesheet" href="../../../public/layui/css/layui.css" />
+		<link rel="stylesheet" href="viewTopic.css" />
+	</head>
+
+	<body>
+		<!-- 检索栏 -->
+		<div class="layui-nav layui-row viewTopic-nav layui-form">
+			<label class="layui-form-label label-filter"><strong>所有课题（教师端）</strong></label>
+			
+			<div id="filter" class="layui-form">
+				<div class="layui-form-item filter-college">
+					<label class="layui-form-label">院系</label>
+					<div class="layui-input-block layui-form">
+						<select id="college" name="college" lay-filter="college">
+							<option></option>
+							<option>理学院</option>
+							<option>国际医药商学院</option>
+							<option>药学院</option>
+							<option>中药学院</option>
+							<option>生命科学与技术学院</option>
+							<option>基础临床药学院</option>
+							<option>药物科学研究院</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item filter-teacher">
+					<label class="layui-form-label">教师</label>
+					<div class="layui-input-block">
+						<select id="teacher" name="teacher_id">
+						</select>
+					</div>
+				</div>
+				
+				<div class="search">
+					<div class="layui-input-block input-search">
+						<input id="topic_name" type="text" name="topic_name" placeholder="课题名称" class="layui-input" />
+					</div>
+					<input id="search_button" lay-filter="search_button" type="submit" class="layui-btn label-search" lay-submit />
+				</div>
+			</div>
+		</div>
+		
+		<table id="topic-table" class="layui-table table-topic" lay-size="lg"></table>
+	</body>
+
+	<script src="../../../public/layui/layui.js"></script>
+	
+	<script type="text/html" id="topic_title">
+		<a href="../../topic/topic.html?topic_id={{d.topic_id}}" class="layui-table-link" target=_blank>
+			{{# if (d.choice_state >= 0) { }}
+				<span style="color: red;">【你的课题】</span>
+			{{# } }}
+			{{d.topic_name}}
+		</a>
+	</script>
+
+	<script type="text/html" id="college_form">
+		<div>{{d.teacher.college}}</div>
+	</script>
+	
+	<script type="text/html" id="teacher_form">
+		<a href="../../teacher/teacher.html?teacher_id={{d.teacher.id}}" class="layui-table-link">{{d.teacher.uname}}</a>
+	</script>
+	
+	<script type="text/html" id="end_time">
+		<div>{{ d.end_time }}</div>
+	</script>
+	
+	<script type="text/html" id="stu_number">
+		<div>{{ d.now_person }} / {{ d.max_person }}</div>
+	</script>
+	
+	<script src="../../../public/js/pagination.js"></script>
+	<script src="viewTopic.js"></script>
+</html>

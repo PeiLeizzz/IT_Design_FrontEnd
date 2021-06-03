@@ -1,3 +1,5 @@
+$ = layui.jquery;
+
 layui.use('table', function() {
 	var table = layui.table;
 	
@@ -13,14 +15,14 @@ layui.use('table', function() {
 				}, {
 					field: 'college',
 					title: '院系',
-					templet: '#college',
+					templet: '#college_form',
 					width: 200,
 					align: 'center'
 				}, {
 					field: 'teacher',
 					title: '指导教师',
 					width: 200,
-					templet: '#teacher',
+					templet: '#teacher_form',
 					align: 'center'
 				}, {
 					field: 'max_person',
@@ -28,18 +30,13 @@ layui.use('table', function() {
 					width: 300,
 					align: 'center'
 				}, {
-					field: 'end_time',
-					title: '截止日期',
+					field: 'choice_status',
+					title: '状态',
 					width: 200,
-					align: 'center'
-				}, {
-					field: 'operation',
-					title: '操作',
-					width: 100,
 					align: 'center'
 				}
 			]
 		],
-		url: 'http://127.0.0.1:8100/view'
+		url: 'http://127.0.0.1:8100/view/topic?student_id=2020180000&&choice_status=0'
 	});
-})
+});
