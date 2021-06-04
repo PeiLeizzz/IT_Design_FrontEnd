@@ -53,9 +53,6 @@
 	
 	<script type="text/html" id="topic_title">
 		<a href="../../topic/topic.html?topic_id={{d.topic_id}}" class="layui-table-link" target=_blank>
-			{{# if (d.choice_state >= 0) { }}
-				<span style="color: red;">【你的课题】</span>
-			{{# } }}
 			{{d.topic_name}}
 		</a>
 	</script>
@@ -76,6 +73,5 @@
 		<div>{{ d.now_person }} / {{ d.max_person }}</div>
 	</script>
 	
-	<script src="../../../public/js/pagination.js"></script>
 	<script src="viewTopic.js"></script>
 </html>

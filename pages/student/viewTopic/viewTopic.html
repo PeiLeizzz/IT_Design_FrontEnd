@@ -53,7 +53,7 @@
 	
 	<script type="text/html" id="topic_title">
 		<a href="../../topic/topic.html?topic_id={{d.topic_id}}" class="layui-table-link" target=_blank>
-			{{# if (d.choice_state >= 0) { }}
+			{{# if (d.choices[0] != null && d.choices[0].choice_state >= 0) { }}
 				<span style="color: red;">【你的课题】</span>
 			{{# } }}
 			{{d.topic_name}}
@@ -77,11 +77,11 @@
 	</script>
 	
 	<script type="text/html" id="operation">
-		{{# if (d.choice_state == 0) { }}
+		{{# if (d.choices[0] != null && d.choices[0].choice_state == 0) { }}
 			<button type="button"
 					class="layui-btn layui-btn-primary layui-border-green"
 					onclick="cancelSelect({{d.topic_id}})">退选</button>
-		{{# } else if (d.choice_state == 1) { }}
+		{{# } else if (d.choices[0] != null && d.choices[0].choice_state == 1) { }}
 			<button type="button" class="layui-btn layui-btn-disabled">已选</button>
 		{{# } else { }}
 			{{# if (has_choice) { }}
@@ -95,6 +95,5 @@
 		{{# } }}
 	</script>
 	
-	<script src="../../../public/js/pagination.js"></script>
 	<script src="viewTopic.js"></script>
 </html>

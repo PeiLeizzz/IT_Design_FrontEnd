@@ -3,9 +3,14 @@ var has_choice = false;
 
 $.ajax({
 	type: "GET",
-	url: "http://127.0.0.1:8100/view/studentChoice",
+	url: "http://127.0.0.1:8100/view/studentChoiceCount",
 	data: {
 		"student_id": "2020180000"
+	}
+})
+.success(function(data) {
+	if (data.code == 500) {
+		has_choice = true;
 	}
 })
 .error(function(data) {
